@@ -8,15 +8,18 @@ export default class App extends Component {
     this.onButtonPress = this.onButtonPress.bind(this)
   }
 
-  onButtonPress() {
-    this.setState({ score: this.state.score + 1 })
+  onButtonPress(value) {
+    this.setState({ score: this.state.score + value })
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text>{this.state.score}</Text>
-        <Button onPress={this.onButtonPress} title='+1' />
+        <Button onPress={() => this.onButtonPress(-1)} title='-1' />
+        <Button onPress={() => this.onButtonPress(-5)} title='-5' />
+        <Button onPress={() => this.onButtonPress(1)} title='+1' />
+        <Button onPress={() => this.onButtonPress(5)} title='+5' />
       </View>
     )
   }
