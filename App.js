@@ -15,11 +15,11 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.score}</Text>
-        <Button onPress={() => this.onButtonPress(-1)} title='-1' />
-        <Button onPress={() => this.onButtonPress(-5)} title='-5' />
-        <Button onPress={() => this.onButtonPress(1)} title='+1' />
-        <Button onPress={() => this.onButtonPress(5)} title='+5' />
+        <Text style={styles.score}>{this.state.score}</Text>
+        <Text style={styles.negButton} onPress={() => this.onButtonPress(-1)}>-1</Text>
+        <Text style={styles.negButton} onPress={() => this.onButtonPress(-5)}>-5</Text>
+        <Text style={styles.posButton} onPress={() => this.onButtonPress(1)}>1</Text>
+        <Text style={styles.posButton} onPress={() => this.onButtonPress(5)}>5</Text>
       </View>
     )
   }
@@ -27,11 +27,23 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
     backgroundColor: 'cyan'
   },
-  button: {
-    backgroundColor: 'green'
+  score: {
+    flex: 2,
+    fontSize: 108,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  negButton: {
+    flex: 1,
+    backgroundColor: 'red'
+  },
+  posButton: {
+    flex: 1,
+    backgroundColor: 'blue'
   }
 })
 
