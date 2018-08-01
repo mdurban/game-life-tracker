@@ -5,7 +5,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { score: 20, dieRoll: '?' }
+    this.state = { score: 20, dieRoll: '20' }
     this.onButtonPress = this.onButtonPress.bind(this)
     this.rollDie = this.rollDie.bind(this)
   }
@@ -24,7 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageBackground source={require('./cradle.jpg')} style={styles.imageBackground}>
+        <ImageBackground source={require('./cradle-opaque.jpg')} style={styles.imageBackground}>
           <Text style={styles.score}>{this.state.score}</Text>
         </ImageBackground>
         <View style={styles.row}>
@@ -36,7 +36,7 @@ export default class App extends Component {
           <Text style={styles.posButton} onPress={() => this.onButtonPress(5)}>5</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.roll} onPress={() => this.rollDie()}><Text>Roll d20:</Text><Text>{this.state.dieRoll}</Text></Text>
+          <Text style={styles.roll} onPress={() => this.rollDie()}><Text>Roll d20: </Text><Text style={styles.dieRoll}>{this.state.dieRoll}</Text></Text>
         </View>
       </View>
     )
@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     fontSize: 200,
-    fontFamily: 'monospace',
+    color: '#2c2d30',
+    fontFamily: 'sans-serif',
     fontWeight: 'bold',
     textAlign: 'center'
   },
   dieRoll: {
-    fontSize: 50,
-    fontFamily: 'Roboto'
+    fontWeight: 'bold'
   },
   imageBackground: {
     flex: 1,
@@ -73,32 +73,54 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'white',
     fontSize: 30,
-    fontFamily: 'monospace',
+    fontFamily: 'sans-serif-medium',
     textAlign: 'center',
     borderWidth: 2.0,
     width: '100%',
   },
-  negButton: {
+  negButtonRight: {
     flex: 1,
     alignSelf: 'center',
     fontSize: 82,
-    fontFamily: 'monospace',
+    fontFamily: 'sans-serif-condensed',
     textAlign: 'center',
     backgroundColor: '#b4615b',
     borderWidth: 2.0,
-    borderColor: '#6D6D6E',
-    color: '#6D6D6E'
+    borderColor: '#2c2d30',
+    color: '#2c2d30'
   },
-  posButton: {
+  negButtonLeft: {
+    flex: 1,
+    alignSelf: 'center',
+    fontSize: 82,
+    fontFamily: 'sans-serif-condensed',
+    textAlign: 'center',
+    backgroundColor: '#b4615b',
+    borderWidth: 2.0,
+    borderColor: '#2c2d30',
+    color: '#2c2d30'
+  },
+  posButtonRight: {
     flex: 1,
     alignSelf: 'center',
     fontSize: 82,
     textAlign: 'center',
-    fontFamily: 'monospace',
+    fontFamily: 'sans-serif-condensed',
     backgroundColor: '#8CBFD3',
     borderWidth: 3.0,
-    borderColor: '#6D6D6E',
-    color: '#6D6D6E'
+    borderColor: '#2c2d30',
+    color: '#2c2d30'
+  }
+  posButtonLeft: {
+    flex: 1,
+    alignSelf: 'center',
+    fontSize: 82,
+    textAlign: 'center',
+    fontFamily: 'sans-serif-condensed',
+    backgroundColor: '#8CBFD3',
+    borderWidth: 3.0,
+    borderColor: '#2c2d30',
+    color: '#2c2d30'
   }
 })
 
