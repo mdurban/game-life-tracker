@@ -36,10 +36,25 @@ export default class LifeTracker extends Component {
   }
 }
 
+const expoBugFix = () => Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+const mainFontColor = '#2c2d30'
+
+const buttonStyle = {
+    flex: 1,
+    alignSelf: 'center',
+    fontSize: 82,
+    textAlign: 'center',
+    fontFamily: 'sans-serif-condensed',
+    backgroundColor: '#8CBFD3',
+    borderWidth: 2.0,
+    borderColor: mainFontColor,
+    color: mainFontColor
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
+    paddingTop: expoBugFix(),
     backgroundColor: '#e6ffff',
     justifyContent: 'center'
   },
@@ -47,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     fontSize: 200,
-    color: '#2c2d30',
+    color: mainFontColor,
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
     textAlign: 'center'
@@ -58,27 +73,24 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row'
   },
-  negButton: {
+  scoreModifiedButton: {
     flex: 1,
     alignSelf: 'center',
     fontSize: 82,
     fontFamily: 'sans-serif-condensed',
     textAlign: 'center',
-    backgroundColor: '#b4615b',
     borderWidth: 2.0,
-    borderColor: '#2c2d30',
-    color: '#2c2d30'
+    borderColor: mainFontColor,
+    color: mainFontColor
+  },
+  negButton: {
+    ...buttonStyle,
+    ...{ backgroundColor: '#b4615b' }
   },
   posButton: {
-    flex: 1,
-    alignSelf: 'center',
-    fontSize: 82,
-    textAlign: 'center',
-    fontFamily: 'sans-serif-condensed',
-    backgroundColor: '#8CBFD3',
-    borderWidth: 2.0,
-    borderColor: '#2c2d30',
-    color: '#2c2d30'
+    ...buttonStyle,
+    ...{ backgroundColor: '#8CBFD3' }
   }
 })
+
 
