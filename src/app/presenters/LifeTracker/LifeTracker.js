@@ -6,19 +6,19 @@ export default class LifeTracker extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { score: 20 }
+    this.state = { lifeTotal: 20 }
     this.onButtonPress = this.onButtonPress.bind(this)
   }
   
   onButtonPress(value) {
-    this.setState({ score: this.state.score + value })
+    this.setState({ lifeTotal: this.state.lifeTotal + value })
   }
 
   render() {
     return (
       <View style={styles.container}>
         <ImageBackground source={require('../../../assets/cradle-opaque.jpg')} style={styles.imageBackground}>
-          <Text style={styles.score}>{this.state.score}</Text>
+          <Text style={styles.score}>{this.state.lifeTotal}</Text>
         </ImageBackground>
         <View style={styles.row}>
           <Text style={styles.negButton} onPress={() => this.onButtonPress(-1)}>-1</Text>
@@ -38,7 +38,6 @@ export default class LifeTracker extends Component {
 
 const expoBugFix = () => Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
 const mainFontColor = '#2c2d30'
-
 const buttonStyle = {
     flex: 1,
     alignSelf: 'center',
@@ -92,5 +91,4 @@ const styles = StyleSheet.create({
     ...{ backgroundColor: '#8CBFD3' }
   }
 })
-
 
