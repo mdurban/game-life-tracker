@@ -1,4 +1,4 @@
-import LifeTracker from './LifeTracker.js'
+import LifeTracker from './'
 import DiceRoller from '../DiceRoller'
 import React from 'react'
 import { configure, shallow } from 'enzyme'
