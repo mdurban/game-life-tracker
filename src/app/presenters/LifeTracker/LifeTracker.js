@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, ImageBackground, Text, View, Button } from 'react-native';
-import DiceRoller from '../DiceRoller/DiceRoller.js'
+import DiceRoller from '../DiceRoller'
 
 export default class LifeTracker extends Component {
   constructor(props) {
@@ -17,9 +17,7 @@ export default class LifeTracker extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageBackground source={require('../../../assets/cradle-opaque.jpg')} style={styles.imageBackground}>
-          <Text style={styles.score}>{this.state.lifeTotal}</Text>
-        </ImageBackground>
+        <Text style={styles.score}>{this.state.lifeTotal}</Text>
         <View style={styles.row}>
           <Text style={styles.negButton} onPress={() => this.onButtonPress(-1)}>-1</Text>
           <Text style={styles.negButton} onPress={() => this.onButtonPress(-5)}>-5</Text>
